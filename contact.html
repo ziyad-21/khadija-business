@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تواصل معنا | استوديو خديجة إبراهيم</title>
+  <meta name="description" content="تواصل مع استوديو خديجة إبراهيم للحلول الرقمية عبر واتساب أو البريد الإلكتروني أو زيارة المقر." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="contact">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge" aria-hidden="true">خ</span>
+        <div>
+          <span class="brand-name" data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</span>
+          <span class="brand-tagline" data-bind="tagline">تصميم وتطوير مواقع وحلول رقمية متكاملة</span>
+        </div>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="nav-link">الرئيسية والخدمات</a>
+        <a href="about.html" class="nav-link">عن النشاط</a>
+        <a href="contact.html" class="nav-link active">تواصل معنا</a>
+        <button type="button" class="btn btn-edit btn-sm" id="toggle-edit-btn" aria-pressed="false">
+          <span id="toggle-edit-label">وضع التحرير</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="edit-toolbar" id="edit-toolbar" hidden>
+    <div class="container edit-toolbar-inner">
+      <div class="edit-status">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>وضع التحرير مفعّل — عدّل رقم الواتساب والعنوان وبيانات الاتصال مباشرة</span>
+      </div>
+      <div class="edit-data-actions">
+        <button type="button" class="btn btn-outline btn-sm" id="export-btn">تصدير البيانات (data.json)</button>
+        <label class="btn btn-outline btn-sm file-trigger" for="import-file">
+          <span>استيراد بيانات</span>
+          <input type="file" id="import-file" accept=".json,application/json" hidden />
+        </label>
+        <button type="button" class="btn btn-danger-outline btn-sm" id="reset-btn">استعادة الافتراضي</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <span class="hero-pill">يسعدنا تواصلك</span>
+        <h1>تواصل مع <span data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</span></h1>
+        <p>اختر وسيلة التواصل المناسبة أو أرسل رسالتك مباشرة إلى واتساب النشاط.</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container contact-grid">
+        <div class="contact-cards-col">
+          <div class="contact-info-card">
+            <span class="info-label">واتساب المباشر</span>
+            <strong class="info-value ltr-inline" data-bind="whatsappDisplay">+966 50 123 4567</strong>
+            <a class="btn btn-whatsapp btn-sm" data-bind-wa="true" href="https://wa.me/966501234567" target="_blank" rel="noopener noreferrer">فتح محادثة واتساب ↗</a>
+          </div>
+
+          <div class="contact-info-card">
+            <span class="info-label">العنوان</span>
+            <strong class="info-value" data-bind="address">الرياض، حي العليا — طريق الملك فهد</strong>
+            <span class="info-sub" data-bind="workingHours">الأحد - الخميس: 9:00 صباحاً - 6:00 مساءً</span>
+          </div>
+
+          <div class="contact-info-card">
+            <span class="info-label">البريد الإلكتروني</span>
+            <strong class="info-value ltr-inline" data-bind="email">hello@khadija-studio.example</strong>
+            <a class="btn btn-outline btn-sm" id="email-link" href="mailto:hello@khadija-studio.example">إرسال رسالة بريدية</a>
+          </div>
+
+          <form class="edit-panel" id="contact-edit-form" hidden>
+            <h3>تعديل بيانات التواصل والعنوان</h3>
+            <div class="field">
+              <label for="edit-contact-business">اسم النشاط</label>
+              <input type="text" id="edit-contact-business" maxlength="100" required />
+            </div>
+            <div class="field">
+              <label for="edit-contact-wa">رقم الواتساب (مع رمز الدولة مثل +966501234567)</label>
+              <input type="text" id="edit-contact-wa" maxlength="30" required />
+            </div>
+            <div class="field">
+              <label for="edit-contact-address">العنوان</label>
+              <input type="text" id="edit-contact-address" maxlength="140" required />
+            </div>
+            <div class="field">
+              <label for="edit-contact-hours">ساعات العمل</label>
+              <input type="text" id="edit-contact-hours" maxlength="100" />
+            </div>
+            <div class="field">
+              <label for="edit-contact-email">البريد الإلكتروني</label>
+              <input type="email" id="edit-contact-email" maxlength="120" />
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-form-card">
+          <h2>أرسل طلبك عبر واتساب</h2>
+          <p class="form-note">املأ الحقول التالية ليتم فتح محادثة واتساب جاهزة بالرسالة مباشرة.</p>
+          <form id="quick-wa-form" class="quick-form">
+            <div class="field">
+              <label for="visitor-name">الاسم</label>
+              <input type="text" id="visitor-name" required maxlength="80" placeholder="اسمك الكريم" />
+            </div>
+            <div class="field">
+              <label for="visitor-service">الخدمة المطلوبة</label>
+              <select id="visitor-service"></select>
+            </div>
+            <div class="field">
+              <label for="visitor-message">تفاصيل الطلب</label>
+              <textarea id="visitor-message" rows="4" required maxlength="500" placeholder="اكتب نبذة مختصرة عن مشروعك أو استفسارك..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-whatsapp">إرسال الرسالة عبر واتساب ↗</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</strong>
+        <p data-bind="address">الرياض، حي العليا — طريق الملك فهد</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">الرئيسية والخدمات</a>
+        <a href="about.html">عن النشاط</a>
+        <a href="contact.html">تواصل معنا</a>
+      </div>
+      <p class="footer-copy">© <span id="current-year"></span> <span data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</span></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

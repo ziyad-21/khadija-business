@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>استوديو خديجة إبراهيم | الرئيسية والخدمات</title>
+  <meta name="description" content="استوديو خديجة إبراهيم للحلول الرقمية — تصميم المواقع، الهويات البصرية، وتجربة المستخدم." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge" aria-hidden="true">خ</span>
+        <div>
+          <span class="brand-name" data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</span>
+          <span class="brand-tagline" data-bind="tagline">تصميم وتطوير مواقع وحلول رقمية متكاملة</span>
+        </div>
+      </a>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="nav-link active">الرئيسية والخدمات</a>
+        <a href="about.html" class="nav-link">عن النشاط</a>
+        <a href="contact.html" class="nav-link">تواصل معنا</a>
+        <button type="button" class="btn btn-edit btn-sm" id="toggle-edit-btn" aria-pressed="false">
+          <span id="toggle-edit-label">وضع التحرير</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="edit-toolbar" id="edit-toolbar" hidden>
+    <div class="container edit-toolbar-inner">
+      <div class="edit-status">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>وضع التحرير مفعّل — أي تعديل يُحفظ تلقائياً عبر جميع صفحات الموقع</span>
+      </div>
+      <div class="edit-data-actions">
+        <button type="button" class="btn btn-outline btn-sm" id="export-btn">تصدير البيانات (data.json)</button>
+        <label class="btn btn-outline btn-sm file-trigger" for="import-file">
+          <span>استيراد بيانات</span>
+          <input type="file" id="import-file" accept=".json,application/json" hidden />
+        </label>
+        <button type="button" class="btn btn-danger-outline btn-sm" id="reset-btn">استعادة الافتراضي</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div id="hero-view">
+            <span class="hero-pill" data-bind="heroBadge">شريكك الموثوق للتحول الرقمي</span>
+            <h1 class="hero-title" data-bind="heroTitle">نصمّم حضورك الرقمي باحترافية تعكس قيمة علامتك</h1>
+            <p class="hero-desc" data-bind="heroDescription"></p>
+            <div class="hero-cta-row">
+              <a class="btn btn-whatsapp" data-bind-wa="true" href="https://wa.me/966501234567" target="_blank" rel="noopener noreferrer">
+                <span>تواصل مباشرة عبر واتساب</span>
+              </a>
+              <a class="btn btn-outline" href="#services">استعراض الخدمات</a>
+            </div>
+          </div>
+
+          <form class="edit-panel" id="hero-edit-form" hidden>
+            <h3>تحرير بيانات الواجهة الرئيسية والنشاط</h3>
+            <div class="form-grid-2">
+              <div class="field">
+                <label for="edit-business-name">اسم النشاط التجاري</label>
+                <input type="text" id="edit-business-name" maxlength="100" required />
+              </div>
+              <div class="field">
+                <label for="edit-tagline">الوصف المختصر بجانب الشعار</label>
+                <input type="text" id="edit-tagline" maxlength="100" />
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="field">
+                <label for="edit-hero-badge">الوسم التعريفي</label>
+                <input type="text" id="edit-hero-badge" maxlength="80" />
+              </div>
+              <div class="field">
+                <label for="edit-whatsapp">رقم الواتساب (مع رمز الدولة)</label>
+                <input type="text" id="edit-whatsapp" maxlength="30" placeholder="+966 50 123 4567" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="edit-hero-title">العنوان الرئيسي</label>
+              <input type="text" id="edit-hero-title" maxlength="140" required />
+            </div>
+            <div class="field">
+              <label for="edit-hero-desc">الوصف التمهيدي</label>
+              <textarea id="edit-hero-desc" rows="3" maxlength="400"></textarea>
+            </div>
+            <div class="field">
+              <label for="edit-address">العنوان الفعلي / المقر</label>
+              <input type="text" id="edit-address" maxlength="140" />
+            </div>
+          </form>
+        </div>
+
+        <div class="hero-media-wrap">
+          <div class="media-frame">
+            <img id="hero-image-el" src="assets/images/hero-studio.jpg" alt="مقر استوديو خديجة إبراهيم للحلول الرقمية" />
+            <div class="media-placeholder" id="hero-image-placeholder" hidden>استوديو خديجة إبراهيم</div>
+          </div>
+          <div class="media-controls" id="hero-image-controls" hidden>
+            <label class="btn btn-secondary btn-xs file-trigger" for="hero-image-upload">
+              <span>تغيير صورة الواجهة</span>
+              <input type="file" id="hero-image-upload" accept="image/*" hidden />
+            </label>
+            <button type="button" class="btn btn-danger-outline btn-xs" id="hero-image-remove">حذف الصورة</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">ماذا نقدم</span>
+            <h2 class="section-title">الخدمات الرئيسية</h2>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm" id="add-service-btn" hidden>+ إضافة خدمة جديدة</button>
+        </div>
+
+        <div class="services-grid" id="services-grid"></div>
+      </div>
+    </section>
+
+    <!-- Quick Info & CTA Band -->
+    <section class="cta-band">
+      <div class="container cta-band-inner">
+        <div>
+          <h2>هل لديك مشروع أو استفسار جاهز للتنفيذ؟</h2>
+          <p>
+            العنوان: <strong data-bind="address">الرياض، حي العليا — طريق الملك فهد</strong>
+            &nbsp;|&nbsp;
+            واتساب: <strong class="ltr-inline" data-bind="whatsappDisplay">+966 50 123 4567</strong>
+          </p>
+        </div>
+        <div class="cta-band-actions">
+          <a class="btn btn-whatsapp" data-bind-wa="true" href="https://wa.me/966501234567" target="_blank" rel="noopener noreferrer">ابدأ المحادثة على واتساب</a>
+          <a class="btn btn-light" href="contact.html">صفحة التواصل الكاملة</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</strong>
+        <p data-bind="address">الرياض، حي العليا — طريق الملك فهد</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">الرئيسية والخدمات</a>
+        <a href="about.html">عن النشاط</a>
+        <a href="contact.html">تواصل معنا</a>
+      </div>
+      <p class="footer-copy">© <span id="current-year"></span> <span data-bind="businessName">استوديو خديجة إبراهيم للحلول الرقمية</span></p>
+    </div>
+  </footer>
+
+  <!-- Service Editor Modal -->
+  <div class="modal-backdrop" id="service-modal" hidden role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="service-modal-title">إضافة / تعديل خدمة</h3>
+        <button type="button" class="icon-btn" id="service-modal-close" aria-label="إغلاق">✕</button>
+      </div>
+      <form id="service-form" class="modal-form">
+        <div class="field">
+          <label for="service-title-input">اسم الخدمة</label>
+          <input type="text" id="service-title-input" required maxlength="80" placeholder="مثال: تصميم وتطوير المواقع التعريفية" />
+        </div>
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="service-tag-input">الباقة أو المدة (اختياري)</label>
+            <input type="text" id="service-tag-input" maxlength="40" placeholder="مثال: تسليم خلال 7 أيام" />
+          </div>
+          <div class="field">
+            <label for="service-icon-input">الرمز المختصر (إيموجي أو حرف)</label>
+            <input type="text" id="service-icon-input" maxlength="8" placeholder="✦" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="service-desc-input">وصف الخدمة</label>
+          <textarea id="service-desc-input" rows="3" required maxlength="320" placeholder="اشرح ما تتضمنه الخدمة بوضوح..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="service-modal-cancel">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ الخدمة</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
